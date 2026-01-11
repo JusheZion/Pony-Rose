@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Interactive Jewelled Red Rose&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { margin: 0; overflow: hidden; background-color: #050505; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#ui-overlay {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.controls-hint {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.7;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#copy-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>right: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(255, 255, 255, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(5px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: auto;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#copy-btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 0, 0, 0.4);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #ff3333;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="ui-overlay"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;The Crimson Crystal Rose&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="controls-hint"&gt;Click &amp; Drag to Rotate | Scroll to Zoom&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button id="copy-btn" onclick="copyToClipboard()"&gt;Copy Code&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script type="importmap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"imports": {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>"three": "https://unpkg.com/three@0.160.0/build/three.module.js",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>"three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script type="module"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import * as THREE from 'three';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import { OrbitControls } from 'three/addons/controls/OrbitControls.js';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let scene, camera, renderer, controls;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function init() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Scene &amp; Camera</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scene = new THREE.Scene();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>camera.position.set(0, 2, 10);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Renderer</p>
+<p class="p1"><span class="Apple-converted-space">            </span>renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>renderer.setSize(window.innerWidth, window.innerHeight);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>renderer.setPixelRatio(window.devicePixelRatio);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>renderer.toneMapping = THREE.ReinhardToneMapping;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.body.appendChild(renderer.domElement);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Lights</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scene.add(ambientLight);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const pointLight1 = new THREE.PointLight(0xff3333, 200);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>pointLight1.position.set(5, 5, 5);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scene.add(pointLight1);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const pointLight2 = new THREE.PointLight(0xffffff, 150);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>pointLight2.position.set(-5, 2, -5);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scene.add(pointLight2);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Create the Rose</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const roseGroup = new THREE.Group();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Materials</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const petalMat = new THREE.MeshPhysicalMaterial({</p>
+<p class="p1"><span class="Apple-converted-space">                </span>color: 0x990000,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>metalness: 0.7,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>roughness: 0.1,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>transmission: 0.2, // Slight glass effect</p>
+<p class="p1"><span class="Apple-converted-space">                </span>thickness: 0.5,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>clearcoat: 1.0,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>clearcoatRoughness: 0.05,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>emissive: 0x220000</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const stemMat = new THREE.MeshStandardMaterial({</p>
+<p class="p1"><span class="Apple-converted-space">                </span>color: 0x003311,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>metalness: 0.8,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>roughness: 0.2</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Procedural Petals (Layers)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; 24; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const layer = Math.floor(i / 6);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const petalGeo = new THREE.IcosahedronGeometry(1.5, 0); // Faceted "jewel" look</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const petal = new THREE.Mesh(petalGeo, petalMat);</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Scale and shape the petals</p>
+<p class="p1"><span class="Apple-converted-space">                </span>petal.scale.set(0.6 + layer * 0.2, 0.1, 0.4 + layer * 0.15);</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Position in a spiral</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const angle = i * (Math.PI * 2 / 6) + (layer * 0.5);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const radius = 0.2 + (layer * 0.4);</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>petal.position.x = Math.cos(angle) * radius;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>petal.position.z = Math.sin(angle) * radius;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>petal.position.y = layer * 0.3;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>petal.rotation.y = -angle;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>petal.rotation.z = 0.5 + (layer * 0.2);</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>roseGroup.add(petal);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Stem</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const stemGeo = new THREE.CylinderGeometry(0.08, 0.12, 8, 8);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const stem = new THREE.Mesh(stemGeo, stemMat);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>stem.position.y = -4;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>roseGroup.add(stem);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Leaves</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for(let j = 0; j &lt; 2; j++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const leafGeo = new THREE.IcosahedronGeometry(0.8, 0);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const leaf = new THREE.Mesh(leafGeo, stemMat);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>leaf.scale.set(1, 0.1, 0.5);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>leaf.position.y = -2 - (j * 2);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>leaf.position.x = j % 2 === 0 ? 0.8 : -0.8;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>leaf.rotation.z = j % 2 === 0 ? 0.5 : -0.5;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>roseGroup.add(leaf);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>scene.add(roseGroup);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>roseGroup.position.y = 1;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Controls</p>
+<p class="p1"><span class="Apple-converted-space">            </span>controls = new OrbitControls(camera, renderer.domElement);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>controls.enableDamping = true;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>controls.autoRotate = true;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>controls.autoRotateSpeed = 0.8;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>window.addEventListener('resize', onWindowResize, false);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function onWindowResize() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>camera.aspect = window.innerWidth / window.innerHeight;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>camera.updateProjectionMatrix();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>renderer.setSize(window.innerWidth, window.innerHeight);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function animate() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>requestAnimationFrame(animate);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>controls.update();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>renderer.render(scene, camera);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Copy functionality</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.copyToClipboard = function() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const el = document.createElement('textarea');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>el.value = document.documentElement.outerHTML;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.body.appendChild(el);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>el.select();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.execCommand('copy');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.body.removeChild(el);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>alert('HTML Code copied to clipboard!');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>init();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>animate();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
